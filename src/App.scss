@@ -1,0 +1,101 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+#container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+  #ipod {
+    #pod-upper{
+      height: 300px;
+      width: 300px;
+      border: 2px solid black;
+    }
+    #pod-lower{
+      height: 200px;
+      width: 300px;
+      border: 2px solid black;
+      user-select: none;
+      #menu{
+        height: 30px;
+        width: 40px;
+        //background-color: rgba(230, 255, 118, 0.349);
+        position: relative;
+        top: 20px;
+        left: 128px;
+        z-index: 1;
+        font-weight: bold;
+      }
+      #right-move{
+        height: 30px;
+        width: 40px;
+        //background-color: rgba(230, 255, 118, 0.349);
+        position: relative;
+        left: 72px;
+        top: 42px;
+        text-align: center;
+        z-index: 1;
+        color: black;
+      }
+      #left-move{
+        height: 30px;
+        width: 40px;
+        //background-color: rgba(230, 255, 118, 0.349);
+        position: relative;
+        left: 187px;
+        top: 13px;
+        text-align: center;
+        z-index: 1;
+      }
+      #play-pause{
+        height: 30px;
+        width: 40px;
+        //background-color: rgba(230, 255, 118, 0.349);
+        position: relative;
+        z-index: 1;
+        top: 37px;
+        left: 130px;
+        text-align: center;
+      }
+      #touchpad {
+        z-index: 0;
+        position: relative;
+        bottom: 110px;
+        left: 75px;
+        width: 150px;
+        height: 150px;
+        background-color: grey;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        #menu{
+          position: relative;
+          top: 0px;
+        }
+        #center-btn{
+          height: 75px;
+          width: 75px;
+          background-color: white;
+          border-radius: 50%;
+
+        }
+      }
+    }
+  }
+}
+
