@@ -9,6 +9,7 @@ export class App extends Component {
   constructor(props) {
     super(props);
 
+    //array which will be rendered as list in the display of the pod
     this.menuItems = ['Music', 'Games', 'Web','Apps','Settings'];
     
     this.music = ['Trending','Playlist','Albums','Artist','Genre'];
@@ -26,19 +27,24 @@ export class App extends Component {
   }
 
   componentDidMount(){
-    let target = document.getElementById('touchpad');
-    let region = new zingtouch.Region(target);
-    let output = document.getElementById('display');
-    let list=10000; 
-    let angle=0;
+    let target = document.getElementById('touchpad'); //fetching the wheel
+    let region = new zingtouch.Region(target); // setting target element to add feature to it
+    //let output = document.getElementById('display'); //fetching the display
+    let list=10000; //counter to check the index of the display
+    let angle=0; //counter to check the angle of the wheel
     let This = this;
 
-    region.bind(target, 'rotate', function(e){
+    region.bind(target, 'rotate', function(e){ // adding rotate feature using zingtouch
+      // if the menu list is updated
       if(This.checkRefresh){
         list=10000;
         This.checkRefresh=false;
       }
+
+      //updating the angle
       angle+=e.detail.distanceFromLast;
+
+      //updating list index
       if(angle>=15){
         list++;
         angle=0;
@@ -50,20 +56,27 @@ export class App extends Component {
         This.changeIdx(list%5);
       }
 
-      output.innerHTML= `Angle = ${angle} Listitem = ${list%5}`;
+      //output.innerHTML= `Angle = ${angle} Listitem = ${list%5}`;
     });
 
   }
-
+  
+  //updating list index globally
   changeIdx = (list) =>{
     this.setState({
       listIdx: list
     })
   }
 
+  //to add feature to the centre button
   centerClick = ()=>{
+
     if(this.state.curpage==='menu'){
+
+      //setting up check if the list is updated
       this.checkRefresh=true;
+
+      //which list to enter depending on the current index of the list
       switch(this.state.listIdx){
         case 0:
           this.setState({
@@ -106,8 +119,22 @@ export class App extends Component {
     }
   }
 
+  menuClick = () =>{
+    if(this.state.curpage!=='menu'){
+      this.checkRefresh=true;
+
+      this.setState({
+        curpage: 'menu',
+        curlist: this.menuItems,
+        listIdx: 0
+      });
+    }
+  }
+
   render() {
     let This=this;
+
+    //creating jsx for each element of the list
     let Menu = this.state.curlist.map((item,index)=> {
       if(This.state.listIdx===index) return <li id='curpoint' key={index}>{item}</li>;
       return <li  key={index}>{item}</li>
@@ -121,7 +148,7 @@ export class App extends Component {
             </ul>
           </div>
           <div id='pod-lower'>
-          <div id='menu'>Menu</div>
+          <div id='menu' onClick={this.menuClick}>Menu</div>
             <div id='left-move'><FontAwesomeIcon icon={faBackward} /></div>
             <div id='right-move'><FontAwesomeIcon icon={faForward} /></div>
             <div id='play-pause'><FontAwesomeIcon icon={faPlay} /><FontAwesomeIcon icon={faPause} /></div>
@@ -131,8 +158,6 @@ export class App extends Component {
             </div>
           </div>
         </div>
-        <div id='display'>0</div>
-        <div>{this.state.listIdx}</div>
       </div>
     );
   }

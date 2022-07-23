@@ -2,17 +2,6 @@
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
 #container {
   display: flex;
   justify-content: center;
@@ -20,6 +9,7 @@
   flex-direction: column;
   height: 100vh;
   #ipod {
+    //display section of the ipod
     #pod-upper{
       height: 300px;
       width: 300px;
@@ -30,23 +20,26 @@
         }
       }
     }
+    // wheel section of the ipod
     #pod-lower{
       height: 200px;
       width: 300px;
       border: 2px solid black;
       user-select: none;
+
+      //menu button
       #menu{
         width: 42px;
-        //background-color: rgba(230, 255, 118, 0.349);
         position: relative;
         top: 20px;
         left: 128px;
         z-index: 1;
         font-weight: bold;
-      }
+      } 
+
+      // forward button
       #left-move{
         width: 20px;
-        //background-color: rgba(230, 255, 118, 0.349);
         position: relative;
         left: 78px;
         top: 58px;
@@ -54,24 +47,28 @@
         z-index: 1;
         color: black;
       }
+
+      //backward button
       #right-move{
         width: 20px;
-        //background-color: rgba(230, 255, 118, 0.349);
         position: relative;
         left: 202px;
         top: 35px;
         text-align: center;
         z-index: 1;
       }
+
+      // play pause button
       #play-pause{
         width: 25px;
-        //background-color: rgba(230, 255, 118, 0.349);
         position: relative;
         z-index: 1;
         top: 77px;
         left: 135px;
         text-align: center;
       }
+
+      //wheel  
       #touchpad {
         z-index: 0;
         position: relative;
@@ -88,6 +85,8 @@
           position: relative;
           top: 0px;
         }
+
+        //center button of the wheel
         #center-btn{
           height: 75px;
           width: 75px;
