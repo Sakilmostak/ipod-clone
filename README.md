@@ -10,6 +10,8 @@ The wheel allow for user to navigate the page.
 
 The menu button is for returning to the parent folder.
 
+Go to Music -> Trending/Playlist to open music player.
+
 Have fun using it.
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
