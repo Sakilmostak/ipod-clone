@@ -1,4 +1,16 @@
-# Getting Started with Create React App
+# Ipod-clone
+
+This is music player device which was trendy during 2000s. 
+
+A react app has been created keeping in mind the simple and clearn UI of ipod with its easy to navigate features. 
+
+This web-app contains menus of item along with an actual music player. 
+
+The wheel allow for user to navigate the page.
+
+The menu button is for returning to the parent folder.
+
+Have fun using it.
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
