@@ -1,9 +1,11 @@
+import React, { Component } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faForward, faBackward, faPlay, faPause } from '@fortawesome/free-solid-svg-icons';
 import './App.scss';
 import zingtouch from 'zingtouch';
+import MusicPlayer from './MusicPlayer'
 
-import React, { Component } from 'react';
+
 
 export class App extends Component {
   constructor(props) {
@@ -23,12 +25,13 @@ export class App extends Component {
       listIdx: 0,
       curpage: 'menu',
       curlist: this.menuItems,
+      checkPlayer: false
     }
   }
 
-  componentDidMount(){
+  async componentDidMount(){
     let target = document.getElementById('touchpad'); //fetching the wheel
-    let region = new zingtouch.Region(target); // setting target element to add feature to it
+    let region = await new zingtouch.Region(target); // setting target element to add feature to it
     //let output = document.getElementById('display'); //fetching the display
     let list=10000; //counter to check the index of the display
     let angle=0; //counter to check the angle of the wheel
@@ -70,7 +73,6 @@ export class App extends Component {
 
   //to add feature to the centre button
   centerClick = ()=>{
-
     if(this.state.curpage==='menu'){
 
       //setting up check if the list is updated
@@ -117,11 +119,29 @@ export class App extends Component {
           return;
       }
     }
+    else if(this.state.curpage==='music'){
+      if(this.state.listIdx===0 || this.state.listIdx===1){
+        this.setState({
+          curpage:'player',
+          checkPlayer: true
+        })
+      }
+    }
   }
 
   menuClick = () =>{
     if(this.state.curpage!=='menu'){
       this.checkRefresh=true;
+
+      if(this.state.curpage==='player'){
+        this.setState({
+          curpage: 'music',
+          checkPlayer: false
+        });
+
+        return;
+
+      }
 
       this.setState({
         curpage: 'menu',
@@ -144,9 +164,7 @@ export class App extends Component {
         <div id='ipod'>
           <div id='pod-upper'>
             <div id='display'>
-              <ul>
-                {Menu}
-              </ul>
+              {this.state.checkPlayer? <MusicPlayer></MusicPlayer> : <ul>{Menu}</ul>}
             </div>  
           </div>
           <div id='pod-lower'>
