@@ -19,13 +19,13 @@ export class App extends Component {
     this.web = ['Search','Incognito Mode','Bookmarks','History','Settings'];
     this.apps = ['Calculator','Radio','Clock','Recorder','Services and Feedbacks'];
     this.settings = ['Display','Sound','Date and Time','Language and Inputs','Device-information'];
-    this.checkRefresh=false;
+    this.checkRefresh=false; // to refresh the indexing when page is changed
 
     this.state = {
-      listIdx: 0,
-      curpage: 'menu',
-      curlist: this.menuItems,
-      checkPlayer: false
+      listIdx: 0,  // for indexing the menu items
+      curpage: 'menu', // tabs on what page is being rendered
+      curlist: this.menuItems, // list which will be rendered
+      checkPlayer: false // to enter or exit the music player
     }
   }
 
@@ -38,7 +38,7 @@ export class App extends Component {
     let This = this;
 
     region.bind(target, 'rotate', function(e){ // adding rotate feature using zingtouch
-      // if the menu list is updated
+      // refreshing the index if page is changed
       if(This.checkRefresh){
         list=10000;
         This.checkRefresh=false;
@@ -119,7 +119,7 @@ export class App extends Component {
           return;
       }
     }
-    else if(this.state.curpage==='music'){
+    else if(this.state.curpage==='music'){ // to enter music player
       if(this.state.listIdx===0 || this.state.listIdx===1){
         this.setState({
           curpage:'player',
@@ -131,8 +131,9 @@ export class App extends Component {
 
   menuClick = () =>{
     if(this.state.curpage!=='menu'){
-      this.checkRefresh=true;
+      this.checkRefresh=true; // to refresh index
 
+      // to exit the music player
       if(this.state.curpage==='player'){
         this.setState({
           curpage: 'music',
