@@ -58,7 +58,6 @@ export class App extends Component {
         angle=0;
         This.changeIdx(list%5);
       }
-
       //output.innerHTML= `Angle = ${angle} Listitem = ${list%5}`;
     });
 
@@ -169,14 +168,12 @@ export class App extends Component {
             </div>  
           </div>
           <div id='pod-lower'>
-          <div id='menu' onClick={this.menuClick}>Menu</div>
+            <div id='menu' onClick={this.menuClick}>Menu</div>
             <div id='left-move'><FontAwesomeIcon icon={faBackward} /></div>
             <div id='right-move'><FontAwesomeIcon icon={faForward} /></div>
             <div id='play-pause'><FontAwesomeIcon icon={faPlay} /><FontAwesomeIcon icon={faPause} /></div>
-            <div id='touchpad'>
-              <div id='center-btn' onClick={this.centerClick}>
-              </div>
-            </div>
+            <div id='touchpad'><div></div></div>
+            <div id='center-btn' onClick={this.centerClick}></div>
           </div>
         </div>
       </div>

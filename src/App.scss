@@ -109,19 +109,19 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        #menu{
-          position: relative;
-          top: 0px;
-        }
+      }
 
-        //center button of the wheel
-        #center-btn{
-          height: 75px;
-          width: 75px;
-          background-image: linear-gradient(rgb(171, 171, 171), rgb(97, 97, 97));
-          border-radius: 50%;
+      //center button of the wheel
+      #center-btn{
+        height: 75px;
+        width: 75px;
+        background-image: linear-gradient(rgb(171, 171, 171), rgb(97, 97, 97));
+        border-radius: 50%;
+        z-index: 1;
+        position: relative;
+        bottom: 182px;
+        left: 112.5px;
 
-        }
       }
     }
   }
