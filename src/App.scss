@@ -9,23 +9,51 @@
   flex-direction: column;
   height: 100vh;
   #ipod {
+    background-color: rgb(181, 174, 174);
+    border-radius: 25px;
+    box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset, rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset, rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+
     //display section of the ipod
     #pod-upper{
+      user-select: none;
       height: 300px;
       width: 300px;
-      border: 2px solid black;
-      ul{
-        #curpoint {
-          background-color: rgb(5, 143, 203);
+      //border: 2px solid black;
+      display: flex;
+      justify-content: center;
+      align-items: center;  
+      border-bottom: none;   
+      div{
+        width: 260px;
+        height: 260px;
+        border: 2px solid black;
+        border-radius: 15px;
+        background-color: beige;
+        ul{
+          padding: 0px;
+          list-style: none;
+          #curpoint {
+            background-color: rgb(5, 143, 203);
+            color: white;
+          }
+          li{
+            height: 35px;
+            padding-left: 5px;
+            font-size: 1.2rem;
+            padding-top: 5px;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+          }
         }
+        
       }
     }
     // wheel section of the ipod
     #pod-lower{
       height: 200px;
       width: 300px;
-      border: 2px solid black;
+      //border: 2px solid black;
       user-select: none;
+      color: rgb(72, 71, 71);
 
       //menu button
       #menu{
@@ -45,7 +73,6 @@
         top: 58px;
         text-align: center;
         z-index: 1;
-        color: black;
       }
 
       //backward button
@@ -74,9 +101,9 @@
         position: relative;
         bottom: 70px;
         left: 75px;
+        background-color: white;
         width: 150px;
         height: 150px;
-        background-color: grey;
         border-radius: 50%;
         display: flex;
         justify-content: center;
@@ -90,7 +117,7 @@
         #center-btn{
           height: 75px;
           width: 75px;
-          background-color: white;
+          background-image: linear-gradient(rgb(171, 171, 171), rgb(97, 97, 97));
           border-radius: 50%;
 
         }

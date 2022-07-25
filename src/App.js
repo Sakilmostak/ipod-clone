@@ -143,9 +143,11 @@ export class App extends Component {
       <div id='container'>
         <div id='ipod'>
           <div id='pod-upper'>
-            <ul>
-              {Menu}
-            </ul>
+            <div id='display'>
+              <ul>
+                {Menu}
+              </ul>
+            </div>  
           </div>
           <div id='pod-lower'>
           <div id='menu' onClick={this.menuClick}>Menu</div>
