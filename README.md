@@ -5,7 +5,9 @@
 
 This is music player device which was trendy during 2000s. 
 
-A react app has been created keeping in mind the simple and clearn UI of ipod with its easy to navigate features. 
+A react app has been created keeping in mind the simple and clean UI of ipod with its easy to navigate features. 
+
+You can try this on https://ipod-clone.vercel.app/
 
 This web-app contains menus of item along with an actual music player. 
 
